@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function factorial(){
+            let n1 = parseInt(document.getElementById("n1").value);
+            let f=1;
+            for(let i=1; i<=n1; i++){
+                f=f*i;
+            }
+            document.getElementById("result").value=f;
+            document.getElementById("n1").value="";
+        }
+
+    </script>
+</head>
+<body>
+    <form>
+        Number 1:
+        <input type="text" name="num1" id="n1"><br>
+
+        Result :
+        <input type="text" name="result" id="result" readonly><br>
+
+
+        <button type="button" name="btn" id="btn" value="factorial" onclick="factorial() ">Factorial.</button>
+
+    </form>
+    
+</body>
+</html>

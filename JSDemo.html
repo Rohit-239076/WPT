@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script>
+         function validatedata(){
+            uname =  document.getElementById("unm").value;
+             if(unm.trim().length==0){
+                 document.getElementById("unme").innerHTML="Plz Enter User Name.";
+                 return false;
+              }
+         else
+         {
+            document.getElementById("unme").innerHTML=" ";
+         }
+         pass= document.getElementById("pass").value;
+
+         if(pass.trim().length==0){
+                 document.getElementById("passw").innerHTML="Plz Enter User passw.";
+                 return false;
+              }  else{
+                document.getElementById("passw").innerHTML=" ";
+                  return true;
+              }
+              }
+
+    </script>
+
+         
+</head>
+<body>
+    <table>
+         <form onsubmit="return validatedata()">
+           <tr>  
+                <td>User Name:</td>
+                <td><input type="text" name="unm" id="unm"></td>
+                <td id="unme"></td>
+           </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="text" name="pass" id="pass"></td>
+                <td id="passw"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit" name="btn" id="btn">Login</button></td>
+                <td></td>
+            </tr>
+        
+        
+        
+        
+        
+        </form>
+
+    </table>
+</body>
+</html>
