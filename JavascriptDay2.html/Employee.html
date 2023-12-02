@@ -1,0 +1,66 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+        let emparr = [{
+            id=101,
+            name="Ram",
+            addreass="Pune"
+        }];
+
+        function displayData(){
+            str="<table border='2'><tr><th>Employee Id</th><th>emp name</th><th>address</th></tr>";
+            for(emp of emparr){
+                str+=`<tr><td>${emp.id}</td><td>${emp.name}</td><td>${emp.address}</td></tr>`
+            }
+            str+="</table>";
+            document.getElementById("mydiv").innerHTML = str;
+        }
+
+        function addnewEmp(){
+        id= parseInt(document.getElementById("id").value);
+        name= parseInt(document.getElementById("nm").value);
+        address=document.getElementById("addr").value;
+
+        var e = {
+            id,
+            name,
+            address
+        };
+        emparr.push(e);
+        console.log(emparr);
+        document.getElementById("id").value="";
+        document.getElementById("name").value="";
+        document.getElementById("addr").value="";
+        displayData();
+        
+    }
+
+     function searchEmp(){
+         id=parseInt(document.getElementById("id").value);
+         ob=emparr.find(x => x.id== id);
+         console.log(`id: ${ob.id} name:${ob.name}`);
+     }
+
+    </script>
+
+
+</head>
+<body>
+    <form>
+        Id : <input type="text" name="id" id="id" ><br>
+        Name : <input type="text" name="nm" id="nm"><br>
+        
+        <button type="button" name="btn" id="btn1" onclick="addnewEmp()">Add new Emp</button>
+        <button type="button" name="btn2" id="btn2" onclick="searchEmp()">Search Emp</button> 
+
+
+    </form>
+</body>
+</html>

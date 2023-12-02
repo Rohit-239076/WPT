@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var  names = ["Ram","sham","Sita"];
+        console.log(names);
+        managedata = function(){
+             //validate texbox is not empty & radio btn is select.
+             arr = document.getElementsByName("action");
+
+             for(var i=0; i<arr.lenght; i++){
+                 if(arr[i].checked){
+                     var op=arr[i].value;
+                     break;
+                 }
+             }
+             switch(op){
+                 case "add":
+                     nm=document.getElementById("nm").value;
+                     names.push(nm)
+                     console.log(names);
+                     break;
+                   
+                 case "delete":
+                     nm = document.getElementById("nm").value;
+                     pos = names.indexOf(nm);
+                     if(pos != -1){ //nhi mila to -1.
+                        names.splice(pos,1)//To delete all occuran=> names.names.filter(x=>x!=nm)
+                        console.log(names);
+                     }  
+                 case "modify":
+                     nm = document.getElementById("nm").value;
+                     newnm = prompt("Enter the Name")
+                     pos = names.indexOf(nm);
+                     if(pos != -1){
+                         names.splice(pos,1,newnm);//1st delete then add the value(pos=dele; 1=how many; newnm=addnew)
+                     }else{
+                         alert("Name Not Found");
+                     }
+                     break; 
+
+                 case "display":
+                     str = "<ol>";
+                     for(var nm of names){
+                         str+="<li>"+nm+"<nm>";
+                     }
+                     str +="</ol>"
+                     nm =  document.getElementById("mydiv").innerHTML=str;
+                     break;
+
+                 case "search": 
+                      nm =  document.getElementById("nm").value; 
+                      pos = searchName(nm);
+                      names.findIndex(x=>x==nm);
+
+
+             }
+        }
+
+
+    </script>
+</head>
+<body>
+    <form>
+        Name : <input type="text" name="nam" id="nm" placeholder="Enter the name."><br><br>
+
+        <input type="radio" name="action" id="add" value="add">
+        <label for="add">Add</label>
+
+        <input type="radio" name="action" id="delete" value="delete">
+        <label for="delete">Delete</label>
+
+        <input type="radio" name="action" id="modify" value="modify">
+        <label for="modify">Modify</label>
+
+        <input type="radio" name="action" id="display" value="display">
+        <label for="display">displayall</label>
+
+        <input type="radio" name="action" id="search">
+        <label for="search">Search</label><br><br>
+
+
+        <button type="button" name="btn" id="btn1" onclick="managedata()">Action</button>
+        <button type="button" name="btn" id="btn2">Clear</button>
+
+      
+
+
+    </form>
+    <div id="mydiv"></div>
+</body>
+</html>

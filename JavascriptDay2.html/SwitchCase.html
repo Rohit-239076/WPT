@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Calculation(op){
+            var num1 = parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+
+            switch(op){
+                case "add":
+                    var result=num1+num2;
+                    // Simple Method
+                    // document.getElementById("mydiv").innerHTML="Addition = " +result;
+                     
+                    //using temlate literal in the echama 6 version:
+                    document.getElementById("mydiv").innerText=`Addition = ${result}`;
+                    break;
+
+                case "sub":
+                     var result=num1-num2;
+                     document.getElementById("mydiv").innerHTML=`Subtraction = ${result}`;
+                     break;
+                     
+                case "mul":
+                    var result=num1*num2;
+                    document.getElementById("mydiv").innerHTML=`Multiplication = ${result}`; 
+                    break;
+                  
+                case "div":
+                    var result=num1/num2;
+                    document.getElementById("mydiv").innerHTML=`Division = ${result}`;
+                    break;
+
+                case "pow":
+                    var result=num1*num1; //|| result=num2*num2;
+                    document.getElementById("mydiv").innerHTML=`Square = ${result}`;
+
+                    //var result=num2*num2;
+                    //document.getElementById("mydiv").innerHTML=`power No2 = ${result}`;
+                    break;
+                case "cub":
+                    var result=num1*num1*num1;
+                    document.getElementById("mydiv").innerHTML=`Cube = ${result}`;  
+                    break;  
+            }
+
+        }
+    </script>
+
+</head>
+
+<body>
+     <form>
+            Number 1: <input type="text" name="num1" id="num1" ><br>
+            Number 2: <input type="text" name="num2"  id="num2"><br>
+
+            <button type="button" name="btn" id="btn1" value="add" onclick="Calculation('add')">Addition</button>
+            <button type="button" name="btn" id="btn2" value="sub" onclick="Calculation('sub')">Subtraction</button>
+            <button type="button" name="btn" id="btn3" value="mul" onclick="Calculation('mul')">Multiplication</button>
+            <button type="button" name="btn" id="btn4" value="div" onclick="Calculation('div')">Division</button>
+            <button type="button" name="btn" id="btn5" value="pow" onclick="Calculation('pow')">Square</button>
+            <button type="button" name="btn" id="btn6" value="cub" onclick="Calculation('cub')">Cube</button>
+            <button type="reset"  name="btn" id="btn7">Clear</button>
+            <div id="mydiv"></div>
+
+        </form>
+</body>
+</html>
